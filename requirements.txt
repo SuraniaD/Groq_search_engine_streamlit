@@ -17,5 +17,5 @@ fastapi
 uvicorn
 langserve
 arxiv
-duckduckgo-search
-ddgs
+duckduckgo-search==3.5.0
+
