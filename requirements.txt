@@ -1,6 +1,6 @@
-langchain
+# langchain
 python-dotenv
-langchain_community
+# langchain_community
 ipynb
 pypdf
 bs4
@@ -12,10 +12,14 @@ beautifulsoup4
 faiss-cpu
 streamlit
 langchain_groq
-langchain_core
+# langchain_core
 fastapi
 uvicorn
 langserve
 arxiv
 duckduckgo-search==3.5.0
+
+langchain==0.1.20
+langchain-core==0.1.20
+langchain-community==0.0.34
 
