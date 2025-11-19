@@ -1,25 +1,26 @@
-# langchain
 python-dotenv
-# langchain_community
-ipynb
-pypdf
-bs4
-wikipedia
-langchain-text-splitters
-langchain-openai
-langchain-openai
-beautifulsoup4
-faiss-cpu
 streamlit
-langchain_groq
-# langchain_core
-fastapi
-uvicorn
-langserve
-arxiv
-duckduckgo-search==3.5.0
 
+# Core LangChain packages (old agents API + community split)
 langchain==0.1.20
 langchain-core==0.1.20
 langchain-community==0.0.34
 
+# Groq integration
+langchain_groq
+
+# Text splitters (if you use them elsewhere)
+langchain-text-splitters
+
+# Tools / loaders
+arxiv
+wikipedia
+duckduckgo-search==3.5.0
+pypdf
+beautifulsoup4
+faiss-cpu
+
+# Optional: for LangServe / FastAPI stuff if you serve it as an API
+fastapi
+uvicorn
+langserve
