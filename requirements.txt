@@ -3,8 +3,8 @@ streamlit
 
 # Core LangChain packages (old agents API + community split)
 langchain==0.1.20
-langchain-core==0.1.20
-langchain-community==0.0.34
+
+langchain-community==0.0.38
 
 # Groq integration
 langchain_groq
