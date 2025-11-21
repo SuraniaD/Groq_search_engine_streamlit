@@ -15,7 +15,7 @@ langchain-text-splitters
 # Tools / loaders
 arxiv
 wikipedia
-duckduckgo-search==3.5.0
+duckduckgo-search==4.4.0
 pypdf
 beautifulsoup4
 faiss-cpu
