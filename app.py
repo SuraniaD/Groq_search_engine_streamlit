@@ -10,6 +10,40 @@ from langchain.agents import initialize_agent, AgentType
 from langchain_community.callbacks.streamlit import StreamlitCallbackHandler
 
 import os
+from langchain.tools import BaseTool
+from langchain_community.utilities import DuckDuckGoSearchAPIWrapper
+from duckduckgo_search import DuckDuckGoSearchException
+
+
+class SafeDuckDuckGoSearch(BaseTool):
+    name = "Search"
+    description = (
+        "Use this to search the web (DuckDuckGo). "
+        "Returns short text snippets from the results."
+    )
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        # Use backend='html' or 'lite' to reduce issues with the API backend
+        self.api_wrapper = DuckDuckGoSearchAPIWrapper(
+            backend="html",   # options: "api", "html", "lite"  [oai_citation:0‡aidoczh.com](https://www.aidoczh.com/langchain_api/html/_modules/langchain_community/utilities/duckduckgo_search.html?utm_source=chatgpt.com)
+            max_results=5,
+        )
+
+    def _run(self, query: str, run_manager=None) -> str:
+        try:
+            return self.api_wrapper.run(query)
+        except DuckDuckGoSearchException as e:
+            # swallow the exception and return a friendly message to the agent
+            return (
+                "I tried to search the web but DuckDuckGo is rate-limiting requests "
+                "from this environment. I couldn't fetch live results right now."
+            )
+
+    async def _arun(self, query: str, run_manager=None) -> str:
+        # you can implement async if needed later
+        return self._run(query, run_manager=run_manager)
+
 from dotenv import load_dotenv
 
 load_dotenv()
